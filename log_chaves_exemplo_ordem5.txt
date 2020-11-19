@@ -1,0 +1,25 @@
+Pagina 0
+Chaves: 21 | 57 | 62
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 1
+Chaves: 73 | 89 | 95
+Filhos: -1 | -1 | -1 | -1
+
+- - - - Pagina Raiz - - - -
+Pagina 2
+Chaves: 65 | 98
+Filhos: 0 | 1 | 3
+- - - - - - - - - - - - - -
+
+Pagina 3
+Chaves: 107 | 112
+Filhos: -1 | -1 | -1
+
+
+- - - - - - - - - - - - - -
+Estatisticas da Arvore-B:
+> Altura: 1
+> Numero de chaves: 10
+> Numero de paginas: 4
+> Taxa de ocupacao: 62.50%

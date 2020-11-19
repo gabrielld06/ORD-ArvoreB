@@ -1,0 +1,749 @@
+Pagina 0
+Chaves: 1 | 2
+Filhos: -1 | -1 | -1
+
+Pagina 1
+Chaves: 132 | 133 | 134 | 135
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 2
+Chaves: 3 | 6 | 11
+Filhos: 0 | 171 | 93 | 65
+
+Pagina 3
+Chaves: 432 | 433
+Filhos: -1 | -1 | -1
+
+Pagina 4
+Chaves: 291 | 292 | 293
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 5
+Chaves: 60 | 61 | 62 | 63
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 6
+Chaves: 350 | 351 | 352
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 7
+Chaves: 294 | 298 | 301
+Filhos: 4 | 133 | 156 | 79
+
+Pagina 8
+Chaves: 14 | 31
+Filhos: 2 | 129 | 92
+
+Pagina 9
+Chaves: 444 | 445 | 446
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 10
+Chaves: 77 | 78 | 79
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 11
+Chaves: 148 | 149 | 150
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 12
+Chaves: 382 | 383
+Filhos: -1 | -1 | -1
+
+Pagina 13
+Chaves: 242 | 243 | 244 | 245
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 14
+Chaves: 136 | 139 | 143
+Filhos: 1 | 143 | 56 | 90
+
+Pagina 15
+Chaves: 191 | 192 | 193
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 16
+Chaves: 24 | 25 | 26
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 17
+Chaves: 406 | 407 | 408
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 18
+Chaves: 409 | 412 | 415
+Filhos: 17 | 67 | 159 | 87
+
+Pagina 19
+Chaves: 94 | 95 | 96
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 20
+Chaves: 373 | 374 | 375
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 21
+Chaves: 482 | 483
+Filhos: -1 | -1 | -1
+
+Pagina 22
+Chaves: 214 | 215
+Filhos: -1 | -1 | -1
+
+Pagina 23
+Chaves: 114 | 115 | 116
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 24
+Chaves: 80 | 83 | 87
+Filhos: 10 | 55 | 170 | 31
+
+Pagina 25
+Chaves: 177 | 178 | 179
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 26
+Chaves: 194 | 197 | 200 | 203
+Filhos: 15 | 140 | 120 | 75 | 144
+
+Pagina 27
+Chaves: 207 | 219
+Filhos: 26 | 121 | 69
+
+Pagina 28
+Chaves: 51 | 100
+Filhos: 8 | 138 | 73
+
+Pagina 29
+Chaves: 259 | 260
+Filhos: -1 | -1 | -1
+
+Pagina 30
+Chaves: 323 | 324
+Filhos: -1 | -1 | -1
+
+Pagina 31
+Chaves: 88 | 89
+Filhos: -1 | -1 | -1
+
+Pagina 32
+Chaves: 464 | 465
+Filhos: -1 | -1 | -1
+
+Pagina 33
+Chaves: 438 | 439
+Filhos: -1 | -1 | -1
+
+Pagina 34
+Chaves: 447 | 451 | 455
+Filhos: 9 | 97 | 51 | 132
+
+Pagina 35
+Chaves: 251 | 252 | 253
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 36
+Chaves: 395 | 396
+Filhos: -1 | -1 | -1
+
+Pagina 37
+Chaves: 376 | 381 | 384 | 387
+Filhos: 20 | 125 | 12 | 111 | 167
+
+Pagina 38
+Chaves: 364 | 365 | 366 | 367
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 39
+Chaves: 271 | 272 | 273
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 40
+Chaves: 254 | 258 | 261
+Filhos: 35 | 85 | 29 | 172
+
+Pagina 41
+Chaves: 390 | 405
+Filhos: 37 | 112 | 18
+
+Pagina 42
+Chaves: 420 | 421 | 422 | 423
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 43
+Chaves: 470 | 471 | 472 | 473
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 44
+Chaves: 122 | 123 | 124 | 125
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 45
+Chaves: 208 | 209
+Filhos: -1 | -1 | -1
+
+Pagina 46
+Chaves: 101 | 102
+Filhos: -1 | -1 | -1
+
+Pagina 47
+Chaves: 103 | 106 | 109
+Filhos: 46 | 109 | 183 | 58
+
+Pagina 48
+Chaves: 52 | 53
+Filhos: -1 | -1 | -1
+
+Pagina 49
+Chaves: 220 | 221
+Filhos: -1 | -1 | -1
+
+Pagina 50
+Chaves: 342 | 343 | 344 | 345
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 51
+Chaves: 452 | 453 | 454
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 52
+Chaves: 305 | 306 | 307 | 308
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 53
+Chaves: 346 | 349 | 353
+Filhos: 50 | 141 | 6 | 145
+
+Pagina 54
+Chaves: 164 | 165 | 166 | 167
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 55
+Chaves: 81 | 82
+Filhos: -1 | -1 | -1
+
+Pagina 56
+Chaves: 140 | 141 | 142
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 57
+Chaves: 69 | 70 | 71
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 58
+Chaves: 110 | 111 | 112
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 59
+Chaves: 37 | 38
+Filhos: -1 | -1 | -1
+
+Pagina 60
+Chaves: 54 | 59
+Filhos: 48 | 96 | 5
+
+Pagina 61
+Chaves: 494 | 495 | 496
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 62
+Chaves: 474 | 477 | 481 | 484
+Filhos: 43 | 107 | 150 | 21 | 184
+
+Pagina 63
+Chaves: 358 | 359
+Filhos: -1 | -1 | -1
+
+Pagina 64
+Chaves: 391 | 392 | 393
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 65
+Chaves: 12 | 13
+Filhos: -1 | -1 | -1
+
+Pagina 66
+Chaves: 319 | 320 | 321
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 67
+Chaves: 410 | 411
+Filhos: -1 | -1 | -1
+
+Pagina 68
+Chaves: 247 | 248 | 249
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 69
+Chaves: 222 | 225 | 230
+Filhos: 49 | 163 | 118 | 84
+
+Pagina 70
+Chaves: 32 | 33 | 34 | 35
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 71
+Chaves: 173 | 174 | 175
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 72
+Chaves: 168 | 172
+Filhos: 54 | 119 | 71
+
+Pagina 73
+Chaves: 113 | 131
+Filhos: 47 | 110 | 14
+
+Pagina 74
+Chaves: 334 | 335
+Filhos: -1 | -1 | -1
+
+Pagina 75
+Chaves: 201 | 202
+Filhos: -1 | -1 | -1
+
+Pagina 76
+Chaves: 275 | 276
+Filhos: -1 | -1 | -1
+
+Pagina 77
+Chaves: 181 | 182
+Filhos: -1 | -1 | -1
+
+Pagina 78
+Chaves: 156 | 157 | 158 | 159
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 79
+Chaves: 302 | 303
+Filhos: -1 | -1 | -1
+
+Pagina 80
+Chaves: 322 | 325
+Filhos: 66 | 30 | 116
+
+Pagina 81
+Chaves: 304 | 318
+Filhos: 7 | 134 | 80
+
+Pagina 82
+Chaves: 211 | 212
+Filhos: -1 | -1 | -1
+
+Pagina 83
+Chaves: 401 | 402 | 403 | 404
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 84
+Chaves: 231 | 232 | 233 | 234
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 85
+Chaves: 255 | 256 | 257
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 86
+Chaves: 314 | 315 | 316 | 317
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 87
+Chaves: 416 | 417 | 418
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 88
+Chaves: 424 | 427
+Filhos: 42 | 101 | 164
+
+Pagina 89
+Chaves: 337 | 338 | 339 | 340
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 90
+Chaves: 144 | 145 | 146
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 91
+Chaves: 45 | 46 | 47
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 92
+Chaves: 36 | 39 | 44 | 48
+Filhos: 70 | 59 | 168 | 91 | 126
+
+Pagina 93
+Chaves: 7 | 8 | 9 | 10
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 94
+Chaves: 265 | 266
+Filhos: -1 | -1 | -1
+
+Pagina 95
+Chaves: 267 | 270 | 274 | 277
+Filhos: 94 | 176 | 39 | 76 | 177
+
+Pagina 96
+Chaves: 55 | 56 | 57 | 58
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 97
+Chaves: 448 | 449 | 450
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 98
+Chaves: 459 | 460 | 461 | 462
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 99
+Chaves: 15 | 16 | 17 | 18
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 100
+Chaves: 118 | 119 | 120
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 101
+Chaves: 425 | 426
+Filhos: -1 | -1 | -1
+
+Pagina 102
+Chaves: 281 | 282
+Filhos: -1 | -1 | -1
+
+Pagina 103
+Chaves: 369 | 370 | 371
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 104
+Chaves: 152 | 153 | 154
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 105
+Chaves: 151 | 155 | 160
+Filhos: 11 | 104 | 78 | 117
+
+Pagina 106
+Chaves: 498 | 499 | 500
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 107
+Chaves: 475 | 476
+Filhos: -1 | -1 | -1
+
+Pagina 108
+Chaves: 73 | 74 | 75
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 109
+Chaves: 104 | 105
+Filhos: -1 | -1 | -1
+
+Pagina 110
+Chaves: 117 | 121 | 126
+Filhos: 23 | 100 | 44 | 135
+
+Pagina 111
+Chaves: 385 | 386
+Filhos: -1 | -1 | -1
+
+Pagina 112
+Chaves: 394 | 397 | 400
+Filhos: 64 | 36 | 180 | 83
+
+Pagina 113
+Chaves: 431 | 443
+Filhos: 88 | 165 | 34
+
+Pagina 114
+Chaves: 329 | 372 | 419 | 458
+Filhos: 81 | 175 | 41 | 113 | 166
+
+- - - - Pagina Raiz - - - -
+Pagina 115
+Chaves: 147 | 290
+Filhos: 28 | 155 | 114
+- - - - - - - - - - - - - -
+
+Pagina 116
+Chaves: 326 | 327 | 328
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 117
+Chaves: 161 | 162
+Filhos: -1 | -1 | -1
+
+Pagina 118
+Chaves: 226 | 227 | 228 | 229
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 119
+Chaves: 169 | 170 | 171
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 120
+Chaves: 198 | 199
+Filhos: -1 | -1 | -1
+
+Pagina 121
+Chaves: 210 | 213 | 216
+Filhos: 45 | 82 | 22 | 149
+
+Pagina 122
+Chaves: 488 | 489
+Filhos: -1 | -1 | -1
+
+Pagina 123
+Chaves: 490 | 493 | 497
+Filhos: 122 | 179 | 61 | 106
+
+Pagina 124
+Chaves: 284 | 285
+Filhos: -1 | -1 | -1
+
+Pagina 125
+Chaves: 377 | 378 | 379 | 380
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 126
+Chaves: 49 | 50
+Filhos: -1 | -1 | -1
+
+Pagina 127
+Chaves: 310 | 311 | 312
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 128
+Chaves: 20 | 21 | 22
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 129
+Chaves: 19 | 23 | 27
+Filhos: 99 | 128 | 16 | 151
+
+Pagina 130
+Chaves: 467 | 468
+Filhos: -1 | -1 | -1
+
+Pagina 131
+Chaves: 463 | 466
+Filhos: 98 | 32 | 130
+
+Pagina 132
+Chaves: 456 | 457
+Filhos: -1 | -1 | -1
+
+Pagina 133
+Chaves: 295 | 296 | 297
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 134
+Chaves: 309 | 313
+Filhos: 52 | 127 | 86
+
+Pagina 135
+Chaves: 127 | 128 | 129 | 130
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 136
+Chaves: 65 | 66 | 67
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 137
+Chaves: 68 | 72
+Filhos: 136 | 57 | 108
+
+Pagina 138
+Chaves: 64 | 76 | 90
+Filhos: 60 | 137 | 24 | 162
+
+Pagina 139
+Chaves: 441 | 442
+Filhos: -1 | -1 | -1
+
+Pagina 140
+Chaves: 195 | 196
+Filhos: -1 | -1 | -1
+
+Pagina 141
+Chaves: 347 | 348
+Filhos: -1 | -1 | -1
+
+Pagina 142
+Chaves: 360 | 363 | 368
+Filhos: 63 | 178 | 38 | 103
+
+Pagina 143
+Chaves: 137 | 138
+Filhos: -1 | -1 | -1
+
+Pagina 144
+Chaves: 204 | 205 | 206
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 145
+Chaves: 354 | 355 | 356
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 146
+Chaves: 187 | 188 | 189
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 147
+Chaves: 180 | 183 | 186
+Filhos: 25 | 77 | 169 | 146
+
+Pagina 148
+Chaves: 163 | 176
+Filhos: 105 | 72 | 147
+
+Pagina 149
+Chaves: 217 | 218
+Filhos: -1 | -1 | -1
+
+Pagina 150
+Chaves: 478 | 479 | 480
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 151
+Chaves: 28 | 29 | 30
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 152
+Chaves: 236 | 237
+Filhos: -1 | -1 | -1
+
+Pagina 153
+Chaves: 238 | 241 | 246
+Filhos: 152 | 181 | 13 | 68
+
+Pagina 154
+Chaves: 250 | 264 | 280
+Filhos: 153 | 40 | 95 | 158
+
+Pagina 155
+Chaves: 190 | 235
+Filhos: 148 | 27 | 154
+
+Pagina 156
+Chaves: 299 | 300
+Filhos: -1 | -1 | -1
+
+Pagina 157
+Chaves: 287 | 288 | 289
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 158
+Chaves: 283 | 286
+Filhos: 102 | 124 | 157
+
+Pagina 159
+Chaves: 413 | 414
+Filhos: -1 | -1 | -1
+
+Pagina 160
+Chaves: 91 | 92
+Filhos: -1 | -1 | -1
+
+Pagina 161
+Chaves: 98 | 99
+Filhos: -1 | -1 | -1
+
+Pagina 162
+Chaves: 93 | 97
+Filhos: 160 | 19 | 161
+
+Pagina 163
+Chaves: 223 | 224
+Filhos: -1 | -1 | -1
+
+Pagina 164
+Chaves: 428 | 429 | 430
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 165
+Chaves: 434 | 437 | 440
+Filhos: 3 | 182 | 33 | 139
+
+Pagina 166
+Chaves: 469 | 487
+Filhos: 131 | 62 | 123
+
+Pagina 167
+Chaves: 388 | 389
+Filhos: -1 | -1 | -1
+
+Pagina 168
+Chaves: 40 | 41 | 42 | 43
+Filhos: -1 | -1 | -1 | -1 | -1
+
+Pagina 169
+Chaves: 184 | 185
+Filhos: -1 | -1 | -1
+
+Pagina 170
+Chaves: 84 | 85 | 86
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 171
+Chaves: 4 | 5
+Filhos: -1 | -1 | -1
+
+Pagina 172
+Chaves: 262 | 263
+Filhos: -1 | -1 | -1
+
+Pagina 173
+Chaves: 330 | 331 | 332
+Filhos: -1 | -1 | -1 | -1
+
+Pagina 174
+Chaves: 333 | 336
+Filhos: 173 | 74 | 89
+
+Pagina 175
+Chaves: 341 | 357
+Filhos: 174 | 53 | 142
+
+Pagina 176
+Chaves: 268 | 269
+Filhos: -1 | -1 | -1
+
+Pagina 177
+Chaves: 278 | 279
+Filhos: -1 | -1 | -1
+
+Pagina 178
+Chaves: 361 | 362
+Filhos: -1 | -1 | -1
+
+Pagina 179
+Chaves: 491 | 492
+Filhos: -1 | -1 | -1
+
+Pagina 180
+Chaves: 398 | 399
+Filhos: -1 | -1 | -1
+
+Pagina 181
+Chaves: 239 | 240
+Filhos: -1 | -1 | -1
+
+Pagina 182
+Chaves: 435 | 436
+Filhos: -1 | -1 | -1
+
+Pagina 183
+Chaves: 107 | 108
+Filhos: -1 | -1 | -1
+
+Pagina 184
+Chaves: 485 | 486
+Filhos: -1 | -1 | -1
+
+
+- - - - - - - - - - - - - -
+Estatisticas da Arvore-B:
+> Altura: 4
+> Numero de chaves: 500
+> Numero de paginas: 185
+> Taxa de ocupacao: 67.57%
