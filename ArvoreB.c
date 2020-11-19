@@ -3,6 +3,7 @@
 #include <string.h>
 
 #define M 5
+#define NULO -1;
 
 typedef struct cabecalho_raiz {
 	int raiz;
@@ -24,6 +25,30 @@ void escreve_pagina(int rrn, pagina *pg, FILE *arvb) {
 	int offset = sizeof(cabecalho) * rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fwrite(pg, sizeof(pagina), 1, arvb);
+}
+
+int inicializa_pagina(pagina *pg) {
+	int i;
+	for(i = 0;i < M;i++) {
+		pg -> chaves[i] = NULO;
+		pg -> filhos[i] = NULO;
+	}
+	pg -> filhos[i] = NULO;
+	pg -> num_chaves = 0;
+}
+
+void insere_na_pagina(int chave, int filhos[], pagina *pg) {
+	
+}
+
+int le_pagina(pagina *pg) {
+	int i;
+	for(i = 0;i < M;i++) {
+		pg -> chaves[i] = NULO;
+		pg -> filhos[i] = NULO;
+	}
+	pg -> filhos[i] = NULO;
+	pg -> num_chaves = 0;
 }
 
 int main(int argc, char **argv) {
