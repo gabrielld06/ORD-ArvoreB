@@ -156,7 +156,7 @@ int ler_chave(FILE *file, int *chave) {
 	return fscanf(file, "%d", chave);
 }
 
-/* void criar(char *nome_arq) {
+void criar(char *nome_arq) {
 	FILE *chaves, *arvb;
 	int reg_cont, i;
 	int chave;
@@ -164,9 +164,93 @@ int ler_chave(FILE *file, int *chave) {
 	cabecalho cab;
 	pagina raiz;
 	
+	cab.rrn_raiz = 0;
+	fwrite(&cab, sizeof(cabecalho), 1, arvb);
+	inicializa_pagina(&raiz);
+	escreve_pagina(cab.rrn_raiz, &raiz, arvb);
 	
-} */
+	while(ler_chave(chaves, &chave) > 0) {
+		if(inserir_chave(chave, &(cab.rrn_raiz), arvb) == ERRO) {
+			fprint(stderr, "Erro: chave \"%d\" ja existente");
+		}
+	}
+	
+	fseek(arvb, 0, SEEK_SET);
+	fwrite(&cab, sizeof(cabecalho), 1, arvb);
+	
+	fclose(chaves);
+	fclose(arvb);
+}
 
+void imprimir_arvore(FILE *arvb) {
+	cabecalho cab;
+	pagina pg;
+	int i, rrn =0;
+	fseek(arvb, 0, SEEK_SET);
+	fread(&cab, sizeof(cabecalho), 1, arvb);
+	fseek(arvb, sizeof(cabecalho), SEEK_SET);
+	
+	while(fread(&pg, sizeof(pagina), 1, arvb)) {
+		if(rrn == cab.rrn_raiz) {
+			printf("- - - - Pagina Raiz - - - -\n");
+		}
+		printf("Pagina %d\n", rrn);
+		
+		printf("Chaves: ");
+		for(i=0;i<pg.num_chaves-1;i++) {
+			printf("%d | ", pg.chaves[i]);
+		}
+		printf("%d\n", pg.chaves[i]);
+		
+		printf("Filhos: ");
+		for(i=0;i<pg.num_chaves;i++) {
+			printf("%d | ", pg.filhos[i]);
+		}
+		printf("%d\n", pg.filhos[i]);
+		
+		if(rrn == cab.rrn_raiz) {
+			printf("- - - - - - - - - - -");
+		}
+		printf("\n");
+		rrn++;
+	}
+}
+
+int altura(FILE *arvb) { // Feito
+	int i, rrn = 0, altura = -1;
+	cabecalho cab;
+	pagina pg;
+	
+	fseek(arvb, 0, SEEK_SET);
+	fread(&cab, sizeof(cabecalho), 1, arvb);
+	
+	rrn = cab.rrn_atual;
+	while(rrn != -1) {
+		le_pagina(rrn, &pg, arvb);
+		rrn = pg.filhos[0];
+		altura++
+	}
+	
+	return altura;
+}
+
+void print_log(FILE *arvb) {
+	int num_chaves=0, num_pgs=0;
+	pagina pg;
+	
+	fseek(arvb, sizeof(cabecalho), SEEK_SET);
+	while(fread(&pg, sizeof(pagina), 1, arvb)) {
+		num_pgs++;
+		num_chaves += pg.num_chaves;
+	}
+	
+	printf("\n- - - - - - - - - - - - -\n");
+	printf("Estatisticas da Arvore-B:\n");
+	printf("> Altura: %d\n", altura(arvb));
+	printf("> Numero de chaves: %d\n", num_chaves);
+	printf("> Numero de paginas: %d\n", num_pgs);
+	printf("> Taxa de ocupacao: %.2f\n", (100*num_chaves)/(num_pgs*(M-1));
+}
 int main(int argc, char **argv) {
 
     if (argc < 3) {
