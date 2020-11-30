@@ -4,11 +4,15 @@
 
 #define M 5
 #define NULO -1
-#define PROMOCAO 5 //ajustar valor
+
+/*#define PROMOCAO 5 //ajustar valor
 #define SEM_PROMOCAO 2
 #define INSERCAO 3
 #define ENCONTRADO 1 // blz
-#define NAO_ENCONTRADO 0 // blz
+#define NAO_ENCONTRADO 0 // blz */
+
+enum {SEM_PROMOCAO, PROMOCAO, INSERCAO, ERRO};
+enum {NAO_ENCONTRADO, ENCONTRADO};
 
 typedef struct cabecalho_raiz {
 	int raiz;
@@ -21,13 +25,13 @@ typedef struct paginas {
 }pagina;
 
 void le_pagina(int rrn, pagina *pg, FILE *arvb) { // Feito
-	int offset = sizeof(cabecalho) * rrn * sizeof(pagina);
+	int offset = sizeof(cabecalho) + rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fread(pg, sizeof(pagina), 1, arvb);
 }
 
 void escreve_pagina(int rrn, pagina *pg, FILE *arvb) { // Feito
-	int offset = sizeof(cabecalho) * rrn * sizeof(pagina);
+	int offset = sizeof(cabecalho) + rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fwrite(pg, sizeof(pagina), 1, arvb);
 }
@@ -41,7 +45,7 @@ int novo_rrn(FILE *arvb) { // Feito
 
 int inicializa_pagina(pagina *pg) { // Feito
 	int i;
-	for(i = 0;i < M;i++) {
+	for(i = 0;i < M-1;i++) {
 		pg -> chaves[i] = NULO;
 		pg -> filhos[i] = NULO;
 	}
@@ -76,8 +80,6 @@ void divide(int chave, int filho_d, pagina *pg, int *chave_pro, int *filho_d_pro
 	// CHAVE_PRO recebe a mediana de PAGAUX
 	mediana = pagaux_num_chaves/2;
 	*chave_pro = pagaux_chaves[mediana];
-	// FILHO_D_PRO  recebe o novo RRN
-	*filho_d_pro = novo_rrn(arvb);
 	// Copiar as chaves e ponteiros para os locais adequados
 	for(i = 0;i < mediana;i++) {
 		pg->chaves[i] = pagaux_chaves[i];
@@ -92,6 +94,8 @@ void divide(int chave, int filho_d, pagina *pg, int *chave_pro, int *filho_d_pro
 		novapagina->num_chaves++;
 	}
 	novapagina->filhos[novapagina->num_chaves] = pagaux_filhos[i];
+	// FILHO_D_PRO  recebe o novo RRN
+	*filho_d_pro = novo_rrn(arvb);
 }
 
 int busca_na_pagina(int chave, pagina pg, int *pos) { // Feito
@@ -148,7 +152,7 @@ int inserir_chave(int chave, int *rrn_raiz, FILE *arvb) { // Verificar
 	int chave_pro, filho_d_pro;
 	int retorno;
 	
-	retorno = inserir(*rrn_raiz, chave, &chave_pro, &filho_d_pro, arvb);
+	retorno = inserir(*rrn_raiz, chave, &filho_d_pro, &chave_pro, arvb);
 	
 	if(retorno == -1)
 		return -1;
@@ -167,22 +171,26 @@ int inserir_chave(int chave, int *rrn_raiz, FILE *arvb) { // Verificar
 	return INSERCAO;
 }
 
-/* int ler_chave(FILE *file, int *chave) {
-	return fscanf(file, "%d", chave);
-} */
+int ler_chave(FILE *file, int *chave) {
+	int x;
+	x = fscanf(file, "%d", chave);
+	
+	return x;
+}
 
-void criar_dat(FILE *arvb) {
+void criar_dat(FILE *arvb, FILE *chaves) {
 	int chave;
 	char buffer[500];
 	cabecalho cab;
 	pagina raiz;
-	
 	cab.raiz = 0;
 	fwrite(&cab, sizeof(cabecalho), 1, arvb);
 	inicializa_pagina(&raiz);
 	escreve_pagina(cab.raiz, &raiz, arvb);
-	
-	while(fscanf(arvb, "%d", &chave) != EOF) {
+	printf("fib\n");
+	while(ler_chave(chaves, &chave) != EOF) {
+		//fgetc(chaves);
+		printf("%d \n", chave);
 		if(inserir_chave(chave, &(cab.raiz), arvb) == -1) {
 			fprintf(stderr, "Erro: chave \"%d\" ja existente", chave);
 		}
@@ -271,11 +279,15 @@ int main(int argc, char **argv) {
 			fprintf(stderr, "$ %s -c nome_arquivo\n", argv[0]);
 			exit(EXIT_FAILURE);
 		}
+		FILE* chaves;
 		arvoreB = fopen("btree.dat", "w+b");
+		if((chaves = fopen(argv[2], "rb")) == NULL) {
+			fprintf(stderr, "Erro ao abrir arquivo\n");
+			exit(EXIT_FAILURE);
+		}
         printf("Criando Arvore-B... nome do arquivo de chaves = %s\n", argv[2]);
-		
-		criar_dat(arvoreB);
-		
+		criar_dat(arvoreB, chaves);
+		fclose(chaves);
     } else if (strcmp(argv[1], "-p") == 0) {
 		arvoreB = fopen("btree.dat", "rb");
 		if(arvoreB == NULL) {
