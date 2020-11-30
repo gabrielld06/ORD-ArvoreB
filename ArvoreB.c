@@ -20,26 +20,26 @@ typedef struct paginas {
 	int filhos[M];
 }pagina;
 
-void le_pagina(int rrn, pagina *pg, FILE *arvb) {
+void le_pagina(int rrn, pagina *pg, FILE *arvb) { // Feito
 	int offset = sizeof(cabecalho) * rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fread(pg, sizeof(pagina), 1, arvb);
 }
 
-void escreve_pagina(int rrn, pagina *pg, FILE *arvb) {
+void escreve_pagina(int rrn, pagina *pg, FILE *arvb) { // Feito
 	int offset = sizeof(cabecalho) * rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fwrite(pg, sizeof(pagina), 1, arvb);
 }
 
-int novo_rrn(FILE *arvb) {
+int novo_rrn(FILE *arvb) { // Feito
 	int offset;
 	fseek(arvb, 0, SEEK_END);
 	offset = ftell(arvb);
 	return (offset-sizeof(cabecalho))/sizeof(pagina);
 }
 
-int inicializa_pagina(pagina *pg) {
+int inicializa_pagina(pagina *pg) { // Feito
 	int i;
 	for(i = 0;i < M;i++) {
 		pg -> chaves[i] = NULO;
@@ -106,7 +106,7 @@ int busca_na_pagina(int chave, pagina pg, int *pos) { // Feito
 	}
 }
 
-int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *arvb) { // Semi Feito
+int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *arvb) { // Feito
 	pagina pg, novapg;
 	int chv_pro, rrn_pro;
 	int pos;
@@ -143,7 +143,7 @@ int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *ar
 	}
 }
 
-int inserir_chave(int chave, int *rrn_raiz, FILE *arvb) {
+int inserir_chave(int chave, int *rrn_raiz, FILE *arvb) { // Verificar
 	pagina raiz;
 	int chave_pro, filho_d_pro;
 	int retorno;
@@ -192,7 +192,7 @@ void criar_dat(FILE *arvb) {
 	fwrite(&cab, sizeof(cabecalho), 1, arvb);
 }
 
-void imprimir_arvore(FILE *arvb) { // Feito
+void print_arvore(FILE *arvb) { // Feito
 	cabecalho cab;
 	pagina pg;
 	int i, rrn =0;
@@ -219,7 +219,7 @@ void imprimir_arvore(FILE *arvb) { // Feito
 		printf("%d\n", pg.filhos[i]);
 		
 		if(rrn == cab.raiz) {
-			printf("- - - - - - - - - - -");
+			printf("- - - - - - - - - - - - - -");
 		}
 		printf("\n");
 		rrn++;
@@ -263,31 +263,31 @@ void print_log(FILE *arvb) { // Feito
 }
 
 int main(int argc, char **argv) {
-
-    if (argc < 3) {
-        fprintf(stderr, "Numero incorreto de argumentos!\n");
-        fprintf(stderr, "Modo de uso:\n");
-        fprintf(stderr, "$ %s (-c|-p) nome_arquivo\n", argv[0]);
-        exit(EXIT_FAILURE);
-    }
-
+	FILE* arvoreB;
     if (strcmp(argv[1], "-c") == 0) {
-		FILE* arvoreB = fopen("btree.dat", "w+b");
+		if (argc < 3) {
+			fprintf(stderr, "Numero incorreto de argumentos!\n");
+			fprintf(stderr, "Modo de uso:\n");
+			fprintf(stderr, "$ %s -c nome_arquivo\n", argv[0]);
+			exit(EXIT_FAILURE);
+		}
+		arvoreB = fopen("btree.dat", "w+b");
         printf("Criando Arvore-B... nome do arquivo de chaves = %s\n", argv[2]);
 		
 		criar_dat(arvoreB);
 		
-		fclose(arvoreB);
     } else if (strcmp(argv[1], "-p") == 0) {
-		FILE* arvoreB = fopen("btree.dat", "rb");
+		arvoreB = fopen("btree.dat", "rb");
 		if(arvoreB == NULL) {
 			fprintf(stderr, "Erro ao abrir arquivo: Arquivo nao existe\n");
 			exit(EXIT_FAILURE);
 		}
-        printf("Modo de impressão da Arvore-B ativado\n");
+        printf("Imprimindo Arvore-B\n");
+		print_arvore(arvoreB);
+		print_log(arvoreB);
     } else {
         fprintf(stderr, "Opcao \"%s\" nao suportada!\n", argv[1]);
     }
-
+	fclose(arvoreB);
     return 0;
 }
