@@ -4,15 +4,10 @@
 
 #define M 5
 #define NULO -1
-
-/*#define PROMOCAO 5 //ajustar valor
-#define SEM_PROMOCAO 2
-#define INSERCAO 3
-#define ENCONTRADO 1 // blz
-#define NAO_ENCONTRADO 0 // blz */
-
-enum {SEM_PROMOCAO, PROMOCAO, INSERCAO, ERRO};
-enum {NAO_ENCONTRADO, ENCONTRADO};
+#define PROMOCAO 1
+#define SEM_PROMOCAO 0
+#define ACHOU 1
+#define NAO_ACHOU 0
 
 typedef struct cabecalho_raiz {
 	int raiz;
@@ -24,26 +19,26 @@ typedef struct paginas {
 	int filhos[M];
 }pagina;
 
-void le_pagina(int rrn, pagina *pg, FILE *arvb) { // Feito
+void le_pagina(int rrn, pagina *pg, FILE *arvb) { 
 	int offset = sizeof(cabecalho) + rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fread(pg, sizeof(pagina), 1, arvb);
 }
 
-void escreve_pagina(int rrn, pagina *pg, FILE *arvb) { // Feito
+void escreve_pagina(int rrn, pagina *pg, FILE *arvb) { 
 	int offset = sizeof(cabecalho) + rrn * sizeof(pagina);
 	fseek(arvb, offset, SEEK_SET);
 	fwrite(pg, sizeof(pagina), 1, arvb);
 }
 
-int novo_rrn(FILE *arvb) { // Feito
-	int offset;
+int rrn_novapag(FILE *arvb) { // Rever
+	int byteoffset;
 	fseek(arvb, 0, SEEK_END);
-	offset = ftell(arvb);
-	return (offset-sizeof(cabecalho))/sizeof(pagina);
+	byteoffset = ftell(arvb);
+	return (byteoffset-sizeof(cabecalho))/sizeof(pagina);
 }
 
-int inicializa_pagina(pagina *pg) { // Feito
+int inicializa_pagina(pagina *pg) { 
 	int i;
 	for(i = 0;i < M-1;i++) {
 		pg -> chaves[i] = NULO;
@@ -53,37 +48,30 @@ int inicializa_pagina(pagina *pg) { // Feito
 	pg -> num_chaves = 0;
 }
 
-void insere_na_pagina(int chave, int filhoD, pagina *pg) { // Feito
-	int i;
-	for(i = pg->num_chaves;i > 0 && chave < pg->chaves[i-1];i--) {
-		pg->chaves[i] = pg->chaves[i-1];
-		pg->filhos[i+1] = pg->filhos[i];
-	}
-	pg->num_chaves++;
-	pg->chaves[i] = chave;
-	pg->filhos[i+1] = filhoD;
-}
-
-int pos_chave(int chave, int chaves[], int num_chaves) {
+int busca_na_pagina(int chave, pagina pg, int *pos) { 
 	int i=0;
-	while(i < num_chaves && chaves[i] < chave) i++;
-	
-	return i;
+	while(i < pg.num_chaves && chave > pg.chaves[i]) 
+		i++;
+	*pos = i;
+	if(*pos < pg.num_chaves && chave ==  pg.chaves[*pos]) {
+		return ACHOU;
+	} else {
+		return NAO_ACHOU;
+	}
 }
 
-void inserir_chave_promo(int chv_pro, int rrn_pro, int chaves[], int filhos[], int *num_chaves) { // Feito
-	int pos, k;
-	pos = pos_chave(chv_pro, chaves, *num_chaves);
-	for(k = *num_chaves;k > pos;k--) {
-		chaves[k] = chaves[k-1];
-		filhos[k+1] = filhos[k];
+void insere_na_pagina(int chave, int filhoD, int chaves[], int filhos[], int *num_chaves) { 
+	int i;
+	for(i = *num_chaves;i > 0 && chave < chaves[i-1];i--) {
+		chaves[i] = chaves[i-1];
+		filhos[i+1] = filhos[i];
 	}
 	(*num_chaves)++;
-	chaves[pos] = chv_pro;
-	filhos[pos+1] = rrn_pro;
+	chaves[i] = chave;
+	filhos[i+1] = filhoD;
 }
 
-void divide(int chave, int filho_d, pagina *pg, int *chave_pro, int *filho_d_pro, pagina *novapagina, FILE *arvb) { // Feito
+void divide(int chave, int filho_d, pagina *pg, int *chave_pro, int *filho_d_pro, pagina *novapagina, FILE *arvb) { 
 	int pagaux_chaves[M], pagaux_filhos[M+1], pagaux_num_chaves, i, mediana;
 	// Copiar PAG para PAGAUX
 	for(i=0;i<pg->num_chaves;i++) {
@@ -93,8 +81,8 @@ void divide(int chave, int filho_d, pagina *pg, int *chave_pro, int *filho_d_pro
 	pagaux_filhos[i] = pg->filhos[i];
 	pagaux_num_chaves = pg->num_chaves;
 	// Inserir CHAVE e FILHO_D  em PAGAUX
-	//insere_na_pagina(chave, filho_d, pg);
-	inserir_chave_promo(chave, filho_d, pagaux_chaves, pagaux_filhos, &(pagaux_num_chaves));
+	insere_na_pagina(chave, filho_d, pagaux_chaves, pagaux_filhos, &(pagaux_num_chaves));
+	
 	inicializa_pagina(novapagina);
 	inicializa_pagina(pg);
 	// CHAVE_PRO recebe a mediana de PAGAUX
@@ -115,22 +103,10 @@ void divide(int chave, int filho_d, pagina *pg, int *chave_pro, int *filho_d_pro
 	}
 	novapagina->filhos[novapagina->num_chaves] = pagaux_filhos[i];
 	// FILHO_D_PRO  recebe o novo RRN
-	*filho_d_pro = novo_rrn(arvb);
+	*filho_d_pro = rrn_novapag(arvb);
 }
 
-int busca_na_pagina(int chave, pagina pg, int *pos) { // Feito
-	int i=0;
-	while(i < pg.num_chaves && chave > pg.chaves[i]) 
-		i++;
-	*pos = i;
-	if(*pos < pg.num_chaves && chave ==  pg.chaves[*pos]) {
-		return ENCONTRADO;
-	} else {
-		return NAO_ENCONTRADO;
-	}
-}
-
-int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *arvb) { // Feito
+int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *arvb) { 
 	pagina pg, novapg;
 	int chv_pro, rrn_pro;
 	int pos;
@@ -144,7 +120,7 @@ int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *ar
 	
 	le_pagina(rrn_atual, &pg, arvb);
 	
-	if(busca_na_pagina(chave, pg, &pos) == ENCONTRADO) {
+	if(busca_na_pagina(chave, pg, &pos) == ACHOU) {
 		fprintf(stderr, "Erro: Chave duplicada\n");
 		return -1;
 	}
@@ -155,12 +131,11 @@ int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *ar
 		return retorno;
 	else {
 		if(pg.num_chaves < M-1) {
-			//insere_na_pagina(chv_pro, rrn_pro, &pg);
-			inserir_chave_promo(chv_pro, rrn_pro, pg.chaves, pg.filhos, &(pg.num_chaves));
+			insere_na_pagina(chv_pro, rrn_pro, pg.chaves, pg.filhos, &(pg.num_chaves));
 			escreve_pagina(rrn_atual, &pg, arvb);
 			return SEM_PROMOCAO;
 		} else {
-			divide(chv_pro, rrn_pro, &pg, chave_pro, filho_d_pro, &novapg, arvb); //conferir
+			divide(chv_pro, rrn_pro, &pg, chave_pro, filho_d_pro, &novapg, arvb);
 			escreve_pagina(rrn_atual, &pg, arvb);
 			escreve_pagina(*filho_d_pro, &novapg, arvb);
 			return PROMOCAO;
@@ -168,47 +143,29 @@ int inserir(int rrn_atual, int chave, int *filho_d_pro, int *chave_pro, FILE *ar
 	}
 }
 
-int inserir_chave(int chave, int *rrn_raiz, FILE *arvb) { // Verificar
-	pagina raiz;
-	int chave_pro, filho_d_pro;
-	int retorno;
-	
-	retorno = inserir(*rrn_raiz, chave, &filho_d_pro, &chave_pro, arvb);
-	
-	if(retorno == -1)
-		return -1;
-	else if(retorno == PROMOCAO) {
-		pagina novaraiz;
-		
-		inicializa_pagina(&novaraiz);
-		novaraiz.chaves[0] = chave_pro;
-		novaraiz.filhos[0] = *rrn_raiz;
-		novaraiz.filhos[1] = filho_d_pro;
-		novaraiz.num_chaves = 1;
-		
-		*rrn_raiz = novo_rrn(arvb);
-		escreve_pagina(*rrn_raiz, &novaraiz, arvb);
-	}
-	return INSERCAO;
-}
-
-int ler_chave(FILE *file, int *chave) {
-	return fscanf(file, "%d", chave);
-}
-
 void criar_dat(FILE *arvb, FILE *chaves) {
-	int chave;
+	int chave, retorno, filho_d_pro, chave_pro;
 	cabecalho cab;
 	pagina raiz;
 	cab.raiz = 0;
 	fwrite(&cab, sizeof(cabecalho), 1, arvb);
 	inicializa_pagina(&raiz);
 	escreve_pagina(cab.raiz, &raiz, arvb);
-	while(ler_chave(chaves, &chave) > 0) {
-		//fgetc(chaves);
-		//printf("%d \n", chave);
-		if(inserir_chave(chave, &(cab.raiz), arvb) == -1) {
-			fprintf(stderr, "Erro: chave \"%d\" ja existente", chave);
+	while(fscanf(chaves, "%d", &chave) > 0) {
+		retorno = inserir(cab.raiz, chave, &filho_d_pro, &chave_pro, arvb);
+		if(retorno == -1) {
+			fprintf(stderr, "Erro: chave '%d' ja existente", chave);
+		} else if(retorno == PROMOCAO) { // Criar nova pagina de promoção
+			pagina novaraiz;
+			
+			inicializa_pagina(&novaraiz);
+			novaraiz.chaves[0] = chave_pro;
+			novaraiz.filhos[0] = cab.raiz;
+			novaraiz.filhos[1] = filho_d_pro;
+			novaraiz.num_chaves = 1;
+			
+			cab.raiz = rrn_novapag(arvb);
+			escreve_pagina(cab.raiz, &novaraiz, arvb);
 		}
 	}
 	
@@ -216,7 +173,7 @@ void criar_dat(FILE *arvb, FILE *chaves) {
 	fwrite(&cab, sizeof(cabecalho), 1, arvb);
 }
 
-void print_arvore(FILE *arvb) { // Feito
+void print_arvore(FILE *arvb) { 
 	cabecalho cab;
 	pagina pg;
 	int i, rrn =0;
@@ -250,7 +207,7 @@ void print_arvore(FILE *arvb) { // Feito
 	}
 }
 
-int altura(FILE *arvb) { // Feito
+int altura(FILE *arvb) { 
 	int i, rrn = 0, altura = -1;
 	cabecalho cab;
 	pagina pg;
@@ -268,7 +225,7 @@ int altura(FILE *arvb) { // Feito
 	return altura;
 }
 
-void print_log(FILE *arvb) { // Feito
+void print_log(FILE *arvb) { 
 	int num_chaves=0, num_pgs=0;
 	pagina pg;
 	
