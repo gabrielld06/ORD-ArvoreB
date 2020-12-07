@@ -31,7 +31,7 @@ void escreve_pagina(int rrn, pagina *pg, FILE *arvb) {
 	fwrite(pg, sizeof(pagina), 1, arvb);
 }
 
-int rrn_novapag(FILE *arvb) { // Rever
+int rrn_novapag(FILE *arvb) { 
 	int byteoffset;
 	fseek(arvb, 0, SEEK_END);
 	byteoffset = ftell(arvb);
